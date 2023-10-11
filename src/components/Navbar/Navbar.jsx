@@ -14,6 +14,9 @@ const navLinks = [
 
 function Navbar() {
   const [showNav, setShowNav] = useState(false);
+  showNav
+    ? (document.querySelector("body").style.overflowY = "hidden")
+    : (document.querySelector("body").style.overflowY = "auto");
   return (
     <nav className="relative bg-light-400 py-[22px]">
       <div className="main-container">
@@ -25,8 +28,8 @@ function Navbar() {
             <FaBars size={28} />
           </button>
           <div
-            className={`absolute right-0 top-0 w-full items-center gap-x-[50px] bg-accent bg-opacity-40 px-5 py-14 text-center backdrop-blur-md duration-300 lg:static lg:flex lg:h-auto lg:w-auto lg:translate-x-0 lg:translate-y-0 lg:bg-transparent lg:px-0 lg:py-0 lg:text-start laptop:gap-x-[100px] ${
-              showNav ? "translate-y-0" : "-translate-y-full"
+            className={`fixed right-0 top-0 h-screen w-[320px] items-center gap-x-[50px] overflow-y-auto bg-accent bg-opacity-40 px-5 py-14 text-center backdrop-blur-md duration-300 lg:static lg:flex lg:h-auto lg:w-auto lg:translate-x-0 lg:translate-y-0 lg:bg-transparent lg:px-0 lg:py-0 lg:text-start laptop:gap-x-[100px] ${
+              showNav ? "translate-x-0" : "translate-x-full"
             }`}
           >
             <button
